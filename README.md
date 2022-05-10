@@ -1,6 +1,5 @@
 # Flask/Telebot course work
-## Made by Skapupel
 
-----------
+[![Python 3.10.4](https://img.shields.io/badge/python-3.10.4-blue.svg)](https://www.python.org/downloads/release/python-3104/)
 
-**Python Version:** 3.10.4
+**Made by Skapupel**
