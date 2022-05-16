@@ -14,7 +14,7 @@
 pip install -r requirements.txt
 ```
 
-### In file .env you should set the following variables:
+### File .env should be created in the project folder with the following variables:
 
 ```
 TELEGRAM_TOKEN=<your_token> # Your Telegram bot token
