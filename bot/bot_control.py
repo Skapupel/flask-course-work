@@ -5,10 +5,10 @@ from flasksite import app
 def requestToTelegram(method, params=None):
     url = "https://api.telegram.org/bot" + app.config['TELEGRAM_TOKEN'] + "/" + method
     if params:
-        r = requests.post(url, json=params)
+        response = requests.post(url, json=params)
     else:
-        r = requests.get(url)
-    return r.json()
+        response = requests.get(url)
+    return response.json()
 
 
 def setupWebhook(url):

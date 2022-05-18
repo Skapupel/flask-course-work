@@ -12,6 +12,6 @@ def bot():
 
 @app.route('/setWebhook', methods=['GET', 'POST'])
 def setWebhook():
-    o = urlparse(request.base_url)
-    url = "https://" + o.hostname + "/" + app.config['TELEGRAM_TOKEN']
+    parseResult = urlparse(request.base_url)
+    url = "https://" + parseResult.hostname + "/" + app.config['TELEGRAM_TOKEN']
     return setupWebhook(url)
