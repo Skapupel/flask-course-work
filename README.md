@@ -19,10 +19,19 @@ pip install -r requirements.txt
 ```
 TELEGRAM_TOKEN=<your_token> # Your Telegram bot token
 SECRET_KEY=<your_secret_key> # Random string
+DATABASE_URI=<your_database_uri> # Your database uri, example: postgresql://user:password@host:port/database [Note: Database should exist]
+```
+
+### Create the database tables:
+
+```
+flask db init
+flask db migrate
+flask db upgrade
 ```
 
 ### Then you can run the app with:
 
 ```
-python3 run.py
+python app.py
 ```
