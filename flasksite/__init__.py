@@ -1,11 +1,30 @@
 from flask import Flask
-from utilities.env import get_from_env
+from flasksite.config import Config
+from flasksite.extensions import db, migrate
 
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = get_from_env('SECRET_KEY')
-app.config['TELEGRAM_TOKEN'] = get_from_env('TELEGRAM_TOKEN')
+def create_app(config_class=Config):
+    # App initialization
+    app = Flask(__name__)
+    app.config.from_object(config_class)
 
+    # Initialize database
+    db.init_app(app)
 
-from flasksite import routes
-from bot import bot_routes
+    # Initialize migration
+    migrate.init_app(app, db)
+
+    # Load context
+    app.app_context().push()
+
+    # Import blueprints
+    from flasksite.views.main.routes import main
+    from flasksite.views.bot.routes import bot
+    from flasksite.views.admin.routes import admin
+
+    # Register blueprints
+    app.register_blueprint(main)
+    app.register_blueprint(bot)
+    app.register_blueprint(admin)
+
+    return app

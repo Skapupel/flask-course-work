@@ -1,9 +1,9 @@
 import requests
-from flasksite import app
+from flask import current_app
 
 
 def requestToTelegram(method, params=None):
-    url = "https://api.telegram.org/bot" + app.config['TELEGRAM_TOKEN'] + "/" + method
+    url = "https://api.telegram.org/bot" + current_app.config['TELEGRAM_TOKEN'] + "/" + method
     if params:
         response = requests.post(url, json=params)
     else:
