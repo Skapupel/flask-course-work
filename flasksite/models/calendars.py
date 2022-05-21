@@ -1,4 +1,4 @@
-from flasksite import db
+from flasksite.extensions import db
 
 
 class Calendars(db.Model):

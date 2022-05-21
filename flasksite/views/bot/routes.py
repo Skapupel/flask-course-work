@@ -1,6 +1,5 @@
 from flask import Blueprint, request, current_app
-from urllib.parse import urlparse
-from flasksite.views.bot.controllers.bot_control import setupWebhook, sendMessage
+from flasksite.views.bot.controllers.bot_control import home_logic, set_webhook_logic
 
 
 bot = Blueprint('bot', __name__)
@@ -8,12 +7,9 @@ bot = Blueprint('bot', __name__)
 
 @bot.route('/' + current_app.config['TELEGRAM_TOKEN'], methods=['GET', 'POST'])
 def home():
-    print(request.json['message'])
-    return "OK"
+    return home_logic(request)
 
 
-@bot.route('/setWebhook', methods=['GET', 'POST'])
+@bot.route('/'  + current_app.config['TELEGRAM_TOKEN'] + '/setWebhook', methods=['GET', 'POST'])
 def setWebhook():
-    parseResult = urlparse(request.base_url)
-    url = "https://" + parseResult.hostname + "/" + current_app.config['TELEGRAM_TOKEN']
-    return setupWebhook(url)
+    return set_webhook_logic(request)

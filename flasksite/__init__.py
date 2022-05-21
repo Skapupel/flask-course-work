@@ -1,6 +1,6 @@
 from flask import Flask
 from flasksite.config import Config
-from flasksite.extensions import db, migrate
+from flasksite.extensions import db, migrate, bcrypt
 
 
 def create_app(config_class=Config):
@@ -13,6 +13,9 @@ def create_app(config_class=Config):
 
     # Initialize migration
     migrate.init_app(app, db)
+
+    # Initialize bcrypt
+    bcrypt.init_app(app)
 
     # Load context
     app.app_context().push()
