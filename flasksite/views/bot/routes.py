@@ -1,5 +1,5 @@
 from flask import Blueprint, request, current_app
-from flasksite.views.bot.controllers.bot_control import home_logic, set_webhook_logic
+from flasksite.views.bot.controllers.bot_logic import home_logic, set_webhook_logic
 
 
 bot = Blueprint('bot', __name__)
