@@ -1,0 +1,57 @@
+html {
+    background: #67C8F1;
+    min-height: 100%;
+    background-size: cover;
+}
+
+body {
+    background: transparent;
+    text-align: center;
+}
+
+h1 {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 5.375rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(62, 47, 104, 0.96) 0%, rgba(89, 68, 148, 0.76) 50%, rgba(62, 47, 104, 0.96) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.my-input {
+    margin-bottom: 1rem;
+    border: 0rem;
+    border-radius: 10px;
+    min-height: 2.8125rem;
+    min-width: 21.25rem;
+    margin: 0rem;
+    text-align: center;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, 0.784);
+    line-height: 1.64875rem;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.my-button {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-size: 1.25rem;
+    line-height: 1.64875rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.784);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.48) 50%, rgba(255, 255, 255, 0.32) 100%);
+    padding: .5rem 1.5rem;
+    border-radius: 20px;
+}
+
+.center1 {
+    margin-top: 12rem;
+}

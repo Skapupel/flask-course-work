@@ -1,0 +1,48 @@
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-style.css') }}">
+{% endblock header %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center1">
+                    <h1>Вхід</h1>
+                    <form action="" method="POST">
+                        {{ form.hidden_tag() }}
+                        {% if form.username.errors %}
+                            <p>{{ form.username(class="my-input is-invalid", placeholder="Логін") }}</p>
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>{{ form.username(class="my-input", placeholder="Логін") }}</p>
+                        {% endif %}
+
+                        {% if form.username.errors %}
+                            <p>{{ form.password(class="my-input is-invalid", placeholder="Пароль") }}</p>
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>{{ form.password(class="my-input", placeholder="Пароль") }}</p>
+                        {% endif %}
+
+                        <p>
+                            {{ form.remember_me(class="form-check-input") }}
+                            {{ form.remember_me.label(class="form-check-label") }}
+                        </p>
+                        
+                        <p>{{ form.submit(class="my-button") }}</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
