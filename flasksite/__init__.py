@@ -1,7 +1,7 @@
 from flask import Flask
 from flasksite.config import Config
 from flasksite.extensions import db, migrate, bcrypt
-from flasksite.views.admin.controllers.admin_user import create_admin
+from flasksite.views.admin.utilities import create_admin
 
 
 def create_app(config_class=Config):
