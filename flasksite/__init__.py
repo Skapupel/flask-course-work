@@ -1,6 +1,7 @@
 from flask import Flask
 from flasksite.config import Config
 from flasksite.extensions import db, migrate, bcrypt
+from flasksite.views.admin.controllers.admin_user import create_admin
 
 
 def create_app(config_class=Config):
@@ -19,6 +20,9 @@ def create_app(config_class=Config):
 
     # Load context
     app.app_context().push()
+
+    # Create admin user in db
+    create_admin()
 
     # Import blueprints
     from flasksite.views.main.routes import main
