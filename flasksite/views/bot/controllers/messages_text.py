@@ -34,17 +34,8 @@ start_with_username_and_password = '''Привіт я телеграм бот Fl
 ⚠️Не забувайте пароль!'''
 
 
-username_already_exists = '''Вибачте, але цей логін вже зайнятий.
-Виберіть інший логін.
-
-Використовуйте команду /username для встановлення логін.
-Використовуйте латинські літери, цифри та знаки пунктуації.
-логін не може містити пробіли.'''
-
-
 TEXT = {
     'start_without_username_and_password': start_without_username_and_password,
     'start_with_username': start_with_username,
-    'username_already_exists': username_already_exists,
     'start_with_username_and_password': start_with_username_and_password
 }
