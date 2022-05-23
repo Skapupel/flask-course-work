@@ -6,6 +6,8 @@ from flask import redirect, url_for, flash, request
 from flasksite.views.admin.forms import SendMessageForm, SendDocumentForm
 from flasksite.views.bot.controllers.telegram_api_functions import sendMessage, sendDocument
 from urllib.parse import urlparse
+import os
+from glob import glob
 
 
 class HomeView(AdminIndexView):
@@ -13,6 +15,7 @@ class HomeView(AdminIndexView):
     def home(self):
         send_message_form = SendMessageForm()
         send_document_form = SendDocumentForm()
+        send_document_form.document.choices = [os.path.basename(x) for x in glob(os.path.join(os.getcwd(), 'flasksite', 'static', 'uploads', '*.pdf'))]
         if send_message_form.validate_on_submit():
             user = send_message_form.user.data
             text = send_message_form.text.data
