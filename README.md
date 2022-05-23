@@ -36,3 +36,10 @@ flask db upgrade
 ```
 python app.py
 ```
+
+### Now you can start your bot:
+
+Enter your website url in the browser, then log in with your admin password. (login:admin)
+Then click on BotWebhook button.
+
+#### And now you are set to go!
