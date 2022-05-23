@@ -16,7 +16,7 @@ bcrypt = Bcrypt()
 
 login_manager = LoginManager()
 login_manager.login_view = 'user.login'
-login_manager.login_message = "Ваш потрібно увійти щоб мати доступ до цієї сторінки"
+login_manager.login_message = "Вам потрібно увійти щоб мати доступ до цієї сторінки"
 login_manager.login_message_category = 'info'
 
 
