@@ -3,7 +3,7 @@ from flasksite.config import Config
 from flasksite.extensions import db, migrate, bcrypt, login_manager, admin
 from flasksite.views.admin.utilities import create_admin
 from flasksite.views.admin.controllers.admin_logic import HomeView
-import flasksite.views.admin.routes
+from flasksite.views.admin.routes import admin_routes
 
 
 def create_app(config_class=Config):
@@ -25,6 +25,7 @@ def create_app(config_class=Config):
 
     # Initialize admin
     admin.init_app(app, index_view=HomeView(name='Головна'))
+    admin_routes(admin, app)
 
     # Load context
     app.app_context().push()
