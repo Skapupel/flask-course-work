@@ -1,0 +1,73 @@
+{% extends 'admin/master.html' %}
+
+{% block title %}
+    {% if title %}
+        Flask Calendar - {{ title }}
+    {% else %}
+        Flask Calendar
+    {% endif %}
+{% endblock title %}
+
+{% block head %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='pictures/favicon.ico') }}" type="image/x-icon">
+{% endblock head %}
+
+{% block body %}
+    <h1 style="text-align: center;">Flask Calendar Admin Panel</h1>
+    <hr>
+    <h2 style="text-align: center;">Send message to user</h2>
+    <form action="" method="POST">
+        {{ send_message_form.hidden_tag() }}
+        {% if send_message_form.user.errors %}
+            <p>{{ send_message_form.user(class="form-control is-invalid") }}</p>
+            <div class="invalid-feedback">
+                {% for error in send_message_form.user.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{{ send_message_form.user(class="form-control") }}</p>
+        {% endif %}
+
+        {% if send_message_form.text.errors %}
+            <p>{{ send_message_form.text(class="form-control is-invalid") }}</p>
+            <div class="invalid-feedback">
+                {% for error in send_message_form.text.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{{ send_message_form.text(class="form-control") }}</p>
+        {% endif %}
+        
+        <p style="text-align: center;">{{ send_message_form.submit(class="btn btn-primary") }}</p>
+    </form>
+    <hr>
+    <h2 style="text-align: center;">Send document to user</h2>
+    <form action="" method="POST">
+        {{ send_document_form.hidden_tag() }}
+        {% if send_document_form.user.errors %}
+            <p>{{ send_document_form.user(class="form-control is-invalid") }}</p>
+            <div class="invalid-feedback">
+                {% for error in send_document_form.user.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{{ send_document_form.user(class="form-control") }}</p>
+        {% endif %}
+
+        {% if send_document_form.document.errors %}
+            <p>{{ send_document_form.document(class="form-control is-invalid") }}</p>
+            <div class="invalid-feedback">
+                {% for error in send_document_form.document.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>{{ send_document_form.document(class="form-control") }}</p>
+        {% endif %}
+        
+        <p style="text-align: center;">{{ send_document_form.submit(class="btn btn-primary") }}</p>
+    </form>
+{% endblock %}

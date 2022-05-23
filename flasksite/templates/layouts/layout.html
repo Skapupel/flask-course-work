@@ -5,15 +5,7 @@
     {% block header %}{% endblock header %}
 </head>
 <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    {% include "layouts/flash_messages.html" %}
     {% block content %}{% endblock content %}
 
     {% include "layouts/footer.html" %}

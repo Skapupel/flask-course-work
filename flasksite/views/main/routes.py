@@ -1,11 +1,12 @@
-from flask import Blueprint, render_template, url_for, current_app
+from flask import Blueprint
 from flask_login import login_required
+from flasksite.views.main.controllers.main_logic import home_logic
 
 
 main = Blueprint('main', __name__)
 
 
-@main.route('/')
+@main.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
-    return render_template('home.html')
+    return home_logic()

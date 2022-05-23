@@ -2,5 +2,6 @@ __pycache__/
 env/
 .vscode/
 migrations/
+uploads/
 
 .env
