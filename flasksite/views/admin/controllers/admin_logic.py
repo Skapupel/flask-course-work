@@ -53,7 +53,7 @@ class MyModelView(ModelView):
 
 class MyFileAdmin(FileAdmin):
 
-    allowed_extensions=['pdf', 'doc', 'docx', 'xls', 'xlsx', 'csv']
+    allowed_extensions=['pdf']
 
     column_labels = {
         'name': 'Назва',
