@@ -9,7 +9,6 @@ from flasksite.models import Users
 
 def home_logic(request):
     if request.method == 'POST':
-        print(request.json)
 
         message = Message(request.json)
 
