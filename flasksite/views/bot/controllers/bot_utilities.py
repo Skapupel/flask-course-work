@@ -78,12 +78,6 @@ class Message():
             return None
 
 
-class CallbackQuery():
-    json = None
-    data = None
-
-
-
 def createKeyboardButton(text, callback_data):
     return {
         "text": text,
