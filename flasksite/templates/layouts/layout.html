@@ -5,8 +5,15 @@
     {% block header %}{% endblock header %}
 </head>
 <body>
-    {% include "layouts/flash_messages.html" %}
-    {% block content %}{% endblock content %}
+    <div class="container">
+        {% block navbar %}{% endblock navbar %}
+        <div class="row">
+            <div class="col-md-12">
+                {% include "layouts/flash_messages.html" %}
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+    </div>
 
     {% include "layouts/footer.html" %}
 </body>

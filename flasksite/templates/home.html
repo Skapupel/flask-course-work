@@ -1,4 +1,95 @@
 {% extends "layouts/layout.html" %}
+{% block navbar %}
+    {% include "layouts/navbar.html" %}
+{% endblock navbar %}
 {% block content %}
-    <h1>Hello World!</h1>
+    <div class="card">
+        <div class="card-header">
+            <h3>Календар подій</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-primary table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Назва</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">#</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in events %}
+                    <tr>
+                        <th scope="row">{{ event.title }}</th>
+                        <td>{{ event.description }}</td>
+                        <td>{{ event.time }}</td>
+                        <td>
+                            <form action="delete" method="POST">
+                                <input type="hidden" name="id" value="{{ event.id }}">
+                                <button type="submit" class="btn btn-primary">Видалити</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Додати подію</h3>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="" method="POST">
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <div class="mb-3">
+                            {{ form.name.label(class="form-label") }}
+                            {% if form.name.errors %}
+                                {{ form.name(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.name(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.description.label(class="form-label") }}
+                            {% if form.description.errors %}
+                                {{ form.description(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.description(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form.time.label(class="form-label") }}
+                            {% if form.time.errors %}
+                                {{ form.time(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.time.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.time(class="form-control form-control-lg") }}
+                            {% endif %}
+                            <div class="form-text">Приклад часу 2022-05-30 17:15:00</div>
+                        </div>
+                    </fieldset>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
