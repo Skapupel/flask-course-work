@@ -1,5 +1,4 @@
 from flask import Blueprint, request
-from flask_login import login_required
 from flasksite.views.user.controllers.user_logic import login_logic, logout_logic
 
 
