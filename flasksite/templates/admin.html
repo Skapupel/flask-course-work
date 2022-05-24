@@ -15,7 +15,7 @@
 {% block body %}
     <h1 style="text-align: center;">Flask Calendar Admin Panel</h1>
     <hr>
-    <h2 style="text-align: center;">Send message to user</h2>
+    <h2 style="text-align: center;">Відправити повідомлення користувачу</h2>
     <form action="" method="POST">
         {{ send_message_form.hidden_tag() }}
         {% if send_message_form.user.errors %}
@@ -43,7 +43,7 @@
         <p style="text-align: center;">{{ send_message_form.submit(class="btn btn-primary") }}</p>
     </form>
     <hr>
-    <h2 style="text-align: center;">Send document to user</h2>
+    <h2 style="text-align: center;">Відправити документ користувачу</h2>
     <form action="" method="POST">
         {{ send_document_form.hidden_tag() }}
         {% if send_document_form.user.errors %}
