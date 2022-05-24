@@ -14,6 +14,7 @@
                         <th scope="col">Назва</th>
                         <th scope="col">Опис</th>
                         <th scope="col">Дата</th>
+                        <th scope="col">Сповіщення</th>
                         <th scope="col">#</th>
                     </tr>
                 </thead>
@@ -23,6 +24,12 @@
                         <th scope="row">{{ event.title }}</th>
                         <td>{{ event.description }}</td>
                         <td>{{ event.time }}</td>
+                        <td>
+                            <form action="notification" method="POST">
+                                <input type="hidden" name="id" value="{{ event.id }}">
+                                <button type="submit" class="btn btn-primary">{{ event.notification }}</button>
+                            </form>
+                        </td>
                         <td>
                             <form action="delete" method="POST">
                                 <input type="hidden" name="id" value="{{ event.id }}">

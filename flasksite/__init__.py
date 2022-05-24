@@ -37,10 +37,12 @@ def create_app(config_class=Config):
     from flasksite.views.main.routes import main
     from flasksite.views.bot.routes import bot
     from flasksite.views.user.routes import user
+    from flasksite.views.api.routes import api
 
     # Register blueprints
     app.register_blueprint(main)
     app.register_blueprint(bot)
     app.register_blueprint(user)
+    app.register_blueprint(api)
 
     return app
